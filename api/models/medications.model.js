@@ -4,10 +4,10 @@ const { DataTypes } = require("sequelize");
 const Medications = sequelize.define(
     "medications",
     {
-        medicamentoID: {
+        /* medicamentoID: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
+        }, */
 
         nombre: {
             type: DataTypes.STRING,
