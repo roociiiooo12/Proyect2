@@ -1,4 +1,4 @@
-const { sequelize } = require("../../db/db");
+const { sequelize } = require("../../database");
 const { DataTypes } = require("sequelize");
 
 const Appointments = sequelize.define(
@@ -27,7 +27,7 @@ const Appointments = sequelize.define(
             type: DataTypes.STRING
         },
         status: {
-            type: DataTypes.ENUM
+            type: DataTypes.ENUM('Programada','Cmpletada', 'Cancelada')
         }
     },
     { 

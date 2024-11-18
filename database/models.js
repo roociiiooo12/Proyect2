@@ -1,51 +1,57 @@
-const Movie = require('../api/models/movie')
-const User = require('../api/models/user')
-const Actors = require('../api/models/actors')
-const Adress = require('../api/models/adresses')
-const Country = require('../api/models/country')
+const Appointments = require('../api/models/appointments.model')
+const Doctors = require('../api/models/doctors.model')
+const Medications = require('../api/models/medications.model')
+const Patients = require('../api/models/patients.model')
+const Prescriptions = require('../api/models/prescriptions.model')
 
 
 function addRelationsToModels() {
     try {
-        Country.hasMany(User, {
-            foreignKey: 'countryId',
-            as: 'users'
+        Doctors.hasMany(Appointments, {
+            foreignKey: 'medicoID',
+            as: 'DoctorsToAppointments'
         });
-
-        User.belongsTo(Country, {
-            foreignKey: 'countryId',
-            as: 'country'
-        });
-        User.hasOne(Adress, {
-            foreignKey: 'userId',
-            as: 'adresses'
-        });
-
-        Adress.belongsTo(User, {
-            foreignKey: 'usersId',
-            as: 'user'
-        });
-
-        Actors.belongsToMany(Movie, {
-            through: 'ActorMovies',
-            as: 'movie',
-            foreignKey: 'actorsId',
-            timestamps: false
+        Appointments.belongsTo(Doctors, {
+            foreignKey: 'medicoID',
+            as: 'DoctorsToAppointments'
         });
 
 
-        Movie.belongsToMany(Actors, {
-            through: 'ActorsMovies',
-            as: 'actors',
-            foreignKey: 'movieId',
-            timestamps: false
+        Patients.hasMany(Appointments, {
+            foreignKey: 'pacienteID',
+            as: 'PatientsToAppointments'
+        });
+
+        Appointments.belongsTo(Patients, {
+            foreignKey: 'pacienteID',
+            as: 'PatientsToAppointments'
+        });
+
+        Patients.hasOne(Prescriptions, {
+            foreignKey: 'pacienteID',
+            as: 'PatientsToPrescriptions'
+        });
+
+        Prescriptions.belongsTo(Patients, {
+            foreignKey: 'pacienteID',
+            as: 'PatientsToPrescriptions'
+        });
+
+        Medications.hasOne(Prescriptions, {
+            through: 'patient_medications',
+            as: 'MedicationsToPrescriptions',
+            foreignKey: 'pacienteID',
+        });
+
+        Prescriptions.belongsTo(Medications, {
+            through: 'patient_medications',
+            as: 'MedicationsToPrescriptions',
+            foreignKey: 'pacienteID',
         });
         console.log('Relations added to all models')
     } catch (error) {
         throw error
     }
-}
+} 
 
 module.exports = addRelationsToModels
-
-

@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { getAllMedications, getOneMedication, createMedication,  updateMedication, deleteMedication } = require('../controllers/medications')
+const { getAllMedications, getOneMedication, createMedication,  updateMedication, deleteMedication } = require('../controllers/medications.controller')
 
 router.get('/', getAllMedications)
 router.get('/:id', getOneMedication)

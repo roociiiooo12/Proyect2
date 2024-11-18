@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { getAllAppointments, getOneAppointment, createAppointment, updateAppointment, deleteAppointment } = require('../controllers/appointments')
+const { getAllAppointments, getOneAppointment, createAppointment, updateAppointment, deleteAppointment } = require('../controllers/appointments.controller')
 
 router.get('/', getAllAppointments)
 router.get('/:id', getOneAppointment)
