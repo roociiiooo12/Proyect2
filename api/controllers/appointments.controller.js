@@ -2,7 +2,7 @@ const Appointments = require("../models/appointments.model");
 
 const getAllAppointments = async (request, response) => {
     try {
-        const appointment = await Appointment.findAll(); 
+        const appointment = await Appointments.findAll(); 
         return response.status(200).json(appointment); 
     } catch (error) {
         return response.status(501).send(error); 
@@ -11,7 +11,7 @@ const getAllAppointments = async (request, response) => {
 
 const getOneAppointment = async (request, response) => {
     try {
-        const appointment = await Appointment.findOne({
+        const appointment = await Appointments.findOne({
             where: {
                 id: request.params.id, 
             },
@@ -24,7 +24,7 @@ const getOneAppointment = async (request, response) => {
 
 const createAppointment = async (request, response) => {
     try {
-        const appointment = await Appointment.create(request.body); 
+        const appointment = await Appointments.create(request.body); 
         return response.status(200).json(appointment);
     } catch (error) {
         return response.status(501).send(error);
@@ -33,7 +33,7 @@ const createAppointment = async (request, response) => {
 
 const updateAppointment = async (request, response) => {
     try {
-        const appointment = await Appointment.update(request.body, {
+        const appointment = await Appointments.update(request.body, {
             where: {
                 id: request.params.id,
             },
@@ -46,41 +46,18 @@ const updateAppointment = async (request, response) => {
 
 const deleteAppointment = async (request, response) => {
     try {
-        await Appointment.destroy({
+        await Appointments.destroy({
             where: {
                 id: request.params.id, 
             },
         });
         return response
             .status(200)
-            .send(`Appointment with id ${request.params.id} was deleted`); 
+            .send(`Appointments with id ${request.params.id} was deleted`); 
     } catch (error) {
         return response.status(501).send(error);
     }
 };
-const addPacienteToCita = async (request, response) => {
-    try {
-        const citaId = request.params.id;
-        const pacienteId = request.params.pacienteId
-
-        const appointment = await Appointment.findByPk(citaId);
-
-        if (!appointment) {
-            return response.status(404).json({ error: "Appointment not found" });
-        }
-        const paciente = await Paciente.findOne({
-            where: {
-                id: request.params.pacienteId,
-            },
-        });
-        await citaaddPaciente(paciente);
-
-        return response.status(200).json({ message: "Paciente added to Appointment", paciente });
-    } catch (error) {
-        return response.status(500).send(error);
-    }
-};
-
 module.exports = {
     getAllAppointments,
     getOneAppointment,
