@@ -4,10 +4,12 @@ const { DataTypes } = require("sequelize");
 const Doctors = sequelize.define(
     "doctors",
     {
-       /*  medicoID: {
+        medicoID: {
             type: DataTypes.INTEGER,
-             allowNull: false,
-        }, */
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true 
+        },
         nombre: {
             type: DataTypes.STRING,
             allowNull: false,

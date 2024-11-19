@@ -182,6 +182,45 @@ const createAppointment = async (req, res) => {
     }
 };
 
+
+//Función para que paciente pueda CANCELAR cita 
+
+const d
+ync (req, res) => {
+    try {
+        const { pacienteID, citaID } = req.params; // Obtener tanto el pacienteID como el citaID de la URL
+
+        // Verificar si el paciente existe
+        const patient = await Patients.findOne({ where: { pacienteID } });
+
+        if (!patient) {
+            return res.status(404).json({ message: 'Paciente no encontrado.' });
+        }
+
+        // Buscar la cita específica de ese paciente
+        const appointment = await Appointments.findOne({
+            where: {
+                id: citaID,
+                pacienteID: pacienteID, // Asegúrate de que la cita pertenezca al paciente
+            }
+        });
+
+        if (!appointment) {
+            return res.status(404).json({ message: 'Cita no encontrada o no pertenece a este paciente.' });
+        }
+
+        // Eliminar la cita
+        await appointment.destroy();
+
+        // Respuesta de éxito
+        return res.status(200).json({ message: 'Cita eliminada exitosamente.' });
+    } catch (error) {
+        console.error('Error al eliminar la cita:', error.message);
+        return res.status(500).json({ message: 'Error del servidor. Por favor, inténtalo nuevamente.' });
+    }
+};
+
+
 module.exports = {
     getAllPatients,
     getOnePatient,
@@ -190,5 +229,6 @@ module.exports = {
     deletePatient,
     getPatientPrescriptions,
     getPatientAppointments,
-    createAppointment
+    createAppointment,
+    deleteAppointment
 }

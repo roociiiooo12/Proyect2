@@ -4,14 +4,17 @@ const { DataTypes } = require("sequelize");
 const Appointments = sequelize.define(
     "appointments",
     {
-       /*  citaID: {
-            type: DataTypes.INTEGER,
+       citaID: {
+           type: DataTypes.INTEGER,
             allowNull: false,
-        }, */
+            primaryKey: true,
+            autoIncrement: true 
+            
+        },  
         pacienteID: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
+        }, 
         medicoID: {
             type: DataTypes.INTEGER,
             allowNull: false
