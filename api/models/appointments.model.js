@@ -10,23 +10,27 @@ const Appointments = sequelize.define(
         }, */
         pacienteID: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
         medicoID: {
             type: DataTypes.INTEGER,
+            allowNull: false
         },
- 
         fecha: {
-            type: DataTypes.DATE,
-            allowNull: false,
+            type: DataTypes.DATEONLY,
+            allowNull: false
         },
         hora: {
-            type: DataTypes.TIME
+            type: DataTypes.TIME,
+            allowNull: false
         },
         motivo: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT,
+            allowNull: false
         },
         estado: {
-            type: DataTypes.ENUM('Programada','Completada', 'Cancelada')
+            type: DataTypes.ENUM('Programada','Completada', 'Cancelada'),
+            allowNull: false
         }
     },
     { 

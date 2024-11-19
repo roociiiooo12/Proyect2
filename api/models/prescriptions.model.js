@@ -16,9 +16,12 @@ const Prescriptions = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        descripcions: {
+        descripcion: {
             type: DataTypes.STRING,
         },
+        fecha: {
+            type: DataTypes.DATE,
+        }
     },
     {
         updatedAt: false,

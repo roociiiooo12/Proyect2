@@ -4,16 +4,23 @@ Tendremos que definir las funciones específicas en los controladores (después 
 
 En nuestra DB los usuarios deberían ser capaces de lo siguiente:
 El paciente debe ser capaz de 
-1. ver sus recetas 
-2. ver sus citas, 
-3. solicitar una cita 
-4. cancelar una cita 
-5. ver el nombre de su doctor/a
+1. ver sus recetas (entrar en mi ID de paciente y traer mis recetas) HECHA
+2. ver sus citas, (entrar en ID paciente y traer citas related to ID) HECHA
+3. solicitar una cita (entrar en ID paciente y crear cita) HECHA
+4. cancelar una cita (entrar en ID paciente y borrar cita)
+
 
 El/la médico debería ser capaz de 
-1. crear un paciente nuevo 
-2. seleccionar a un paciente, 
-3. ver a todos sus pacientes, 
-4. crear recetas de un paciente, 
-5. ver recetas anteriores de un paciente 
-6. ver todas sus citas
+
+1. crear un paciente nuevo (entrar en ID de doctor y poder crear un usuario)
+2. seleccionar a un paciente, (entre en ID de doctor y seleccionar ID de paciente)
+3. ver a todos sus pacientes, (conseguir todos los pacientes relacionados con la ID del doctor en cuestión)
+4. crear recetas de un paciente, (entrar en ID doctor, entrar en ID paciente y crear receta relacionada a ID paciente)
+5. ver recetas anteriores de un paciente (seleccionar el ID de un paciente perteneciente a un doctor en concreto y mostrar las recetas de este paciente)
+6. ver todas sus citas (conseguir todas las citas relacionadas con el ID del doctor)
+
+
+
+importante:
+
+AL CREAR LAS NUEVAS ENDPOINTS, HAY QUE REFERENCIAR LA RELACIÓN ENTRE TABLAS A TRAVÉS DEL ALIAS
