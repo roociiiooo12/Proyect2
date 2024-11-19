@@ -185,8 +185,7 @@ const createAppointment = async (req, res) => {
 
 //Función para que paciente pueda CANCELAR cita 
 
-const d
-ync (req, res) => {
+const deleteAppointment = async (req, res) => {
     try {
         const { pacienteID, citaID } = req.params; // Obtener tanto el pacienteID como el citaID de la URL
 
@@ -200,7 +199,7 @@ ync (req, res) => {
         // Buscar la cita específica de ese paciente
         const appointment = await Appointments.findOne({
             where: {
-                id: citaID,
+                citaID: citaID,
                 pacienteID: pacienteID, // Asegúrate de que la cita pertenezca al paciente
             }
         });

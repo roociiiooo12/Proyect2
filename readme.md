@@ -4,10 +4,11 @@ Tendremos que definir las funciones específicas en los controladores (después 
 
 En nuestra DB los usuarios deberían ser capaces de lo siguiente:
 El paciente debe ser capaz de 
+
 1. ver sus recetas (entrar en mi ID de paciente y traer mis recetas) HECHA
 2. ver sus citas, (entrar en ID paciente y traer citas related to ID) HECHA
 3. solicitar una cita (entrar en ID paciente y crear cita) HECHA
-4. cancelar una cita (entrar en ID paciente y borrar cita)
+4. cancelar una cita (entrar en ID paciente y borrar cita) HECHA
 
 
 El/la médico debería ser capaz de 

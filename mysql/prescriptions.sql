@@ -1,4 +1,4 @@
-INSERT INTO prescriptions (pacienteID, nombre, descripcion, fechaPrescripcion) VALUES
+INSERT INTO prescriptions (pacienteID, nombre, descripcion, fecha) VALUES
 (1, 'Tratamiento Gripe', 'Tomar un comprimido de Ibuprofeno cada 8 horas por 5 días.', '2024-11-15'),
 (2, 'Dolor de Cabeza', 'Paracetamol cada 6 horas según sea necesario para el dolor.', '2024-11-16'),
 (3, 'Antialérgico', 'Tomar un comprimido de Loratadina una vez al día por 10 días.', '2024-11-17'),
