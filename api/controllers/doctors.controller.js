@@ -284,6 +284,51 @@ const createPrescriptionByDoctor = async (req, res) => {
 };
 
 
+// función para que doctor vea TODAS LAS RECETAS de un MISMO PACIENTE
+
+
+const getPatientPrescriptionsByDoctor = async (req, res) => {
+    try {
+        const { medicoID, pacienteID } = req.params; // IDs del doctor y paciente
+
+        // Verificar si el doctor existe
+        const doctor = await Doctors.findOne({ where: { medicoID: medicoID } });
+
+        if (!doctor) {
+            return res.status(404).json({ message: 'Doctor no encontrado.' });
+        }
+
+        // Verificar si el paciente está asociado al doctor mediante una cita
+        const appointment = await Appointments.findOne({
+            where: { medicoID, pacienteID }
+        });
+
+        if (!appointment) {
+            return res.status(404).json({ message: 'El paciente no está asociado al doctor.' });
+        }
+
+        // Obtener las recetas asociadas al paciente
+        const prescriptions = await Prescriptions.findAll({
+            where: { pacienteID },
+            attributes: ['nombre', 'descripcion', 'fecha',], // Campos relevantes
+           
+        });
+
+        if (prescriptions.length === 0) {
+            return res.status(200).json({ message: 'El paciente no tiene recetas asociadas.', recetas: [] });
+        }
+
+        // Respuesta de éxito
+        res.status(200).json({
+            message: `Recetas del paciente con ID ${pacienteID} asociadas al doctor ${doctor.nombre} ${doctor.apellidos}.`,
+            recetas: prescriptions
+        });
+    } catch (error) {
+        console.error('Error al obtener las recetas del paciente:', error.message);
+        res.status(500).json({ message: 'Error del servidor. Por favor, inténtalo de nuevo.' });
+    }
+};
+
 
 
 
@@ -298,6 +343,7 @@ module.exports = {
     getDoctorPatients,
     getOnePatient,
     createPatientByDoctor,
-    createPrescriptionByDoctor
+    createPrescriptionByDoctor,
+    getPatientPrescriptionsByDoctor
 
 }

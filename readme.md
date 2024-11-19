@@ -21,7 +21,7 @@ El/la médico debería ser capaz de
 
 4. crear recetas de un paciente, (entrar en ID doctor, entrar en ID paciente y crear receta relacionada a ID paciente) HECHA
 
-5. ver recetas anteriores de un paciente (seleccionar el ID de un paciente perteneciente a un doctor en concreto y mostrar las recetas de este paciente)
+5. ver todas las recetas de un paciente (seleccionar el ID de un paciente perteneciente a un doctor en concreto y mostrar las recetas de este paciente) HECHA
 
 6. ver todas sus citas (conseguir todas las citas relacionadas con el ID del doctor) HECHA
 

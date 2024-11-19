@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const { getAllDoctors, getOneDoctor, createDoctor, 
-    updateDoctor, deleteDoctor, getDoctorAppointments, getOnePatient, createPatientByDoctor, createPrescriptionByDoctor } = require('../controllers/doctors.controller')
+    updateDoctor, deleteDoctor, getDoctorAppointments, getOnePatient, createPatientByDoctor, createPrescriptionByDoctor, getPatientPrescriptionsByDoctor } = require('../controllers/doctors.controller')
 
 router.get('/', getAllDoctors)
 router.get('/:id', getOneDoctor)
@@ -12,7 +12,7 @@ router.get('/:medicoID/appointments', getDoctorAppointments)
 router.get('/:medicoID/patients/:pacienteID', getOnePatient)
 router.post('/:medicoID/patients', createPatientByDoctor)
 router.post('/:medicoID/patients/:pacienteID/prescriptions', createPrescriptionByDoctor);
-
+router.get('/:medicoID/patients/:pacienteID/prescriptions', getPatientPrescriptionsByDoctor);
 
 
 module.exports = router
