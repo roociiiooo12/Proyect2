@@ -8,7 +8,7 @@ router.post('/', createPatient)
 router.put('/:id', updatePatient)
 router.delete('/:id', deletePatient)
 router.get('/:id/prescriptions', getPatientPrescriptions)
-router.get('/:id/appointments', getPatientAppointments);
+router.get('/:id/appointments', getPatientAppointments)
 router.post('/:id/appointments', createAppointment)
 router.delete('/:pacienteID/appointments/:citaID', deleteAppointment);
 

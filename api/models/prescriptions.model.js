@@ -22,7 +22,7 @@ const Prescriptions = sequelize.define(
             type: DataTypes.STRING,
         },
         fecha: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
         }
     },
     {

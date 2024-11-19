@@ -13,12 +13,17 @@ El paciente debe ser capaz de
 
 El/la médico debería ser capaz de 
 
-1. crear un paciente nuevo (entrar en ID de doctor y poder crear un usuario)
-2. seleccionar a un paciente, (entre en ID de doctor y seleccionar ID de paciente)
-3. ver a todos sus pacientes, (conseguir todos los pacientes relacionados con la ID del doctor en cuestión)
-4. crear recetas de un paciente, (entrar en ID doctor, entrar en ID paciente y crear receta relacionada a ID paciente)
+1. crear un paciente nuevo (entrar en ID de doctor y poder crear un usuario) HECHA
+
+2. seleccionar a un paciente, (entre en ID de doctor y seleccionar ID de paciente) HECHA
+
+3. ver a todos sus pacientes, (conseguir todos los pacientes relacionados con la ID del doctor en cuestión) HECHA
+
+4. crear recetas de un paciente, (entrar en ID doctor, entrar en ID paciente y crear receta relacionada a ID paciente) HECHA
+
 5. ver recetas anteriores de un paciente (seleccionar el ID de un paciente perteneciente a un doctor en concreto y mostrar las recetas de este paciente)
-6. ver todas sus citas (conseguir todas las citas relacionadas con el ID del doctor)
+
+6. ver todas sus citas (conseguir todas las citas relacionadas con el ID del doctor) HECHA
 
 
 

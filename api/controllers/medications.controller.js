@@ -59,6 +59,10 @@ const deleteMedication = async (request, response) => {
         return response.status(501).send(error);
     }
 };
+
+
+
+
 module.exports = {
     getAllMedications,
     getOneMedication,
