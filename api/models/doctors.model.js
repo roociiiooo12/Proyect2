@@ -21,6 +21,10 @@ const Doctors = sequelize.define(
         especialidad: {
             type: DataTypes.STRING,
         },
+        role: {
+            type: DataTypes.ENUM("Admin", "Doctor"),
+            defaultValue: "Doctor"
+        },
     },
     { 
         updatedAt: false,
@@ -28,5 +32,6 @@ const Doctors = sequelize.define(
 
     }
 );
+//DEFINIR EL ROL DE ADMIN EN ESTE MODELO - HECHO
 
 module.exports = Doctors;

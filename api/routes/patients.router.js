@@ -2,15 +2,19 @@ const router = require('express').Router()
 
 const { getAllPatients, getOnePatient, createPatient, updatePatient, deletePatient, getPatientPrescriptions, getPatientAppointments, createAppointment, deleteAppointment } = require('../controllers/patients.controller')
 
-router.get('/', getAllPatients)
-router.get('/:id', getOnePatient)
-router.post('/', createPatient)
-router.put('/:id', updatePatient)
-router.delete('/:id', deletePatient)
-router.get('/:id/prescriptions', getPatientPrescriptions)
-router.get('/:id/appointments', getPatientAppointments)
-router.post('/:id/appointments', createAppointment)
-router.delete('/:pacienteID/appointments/:citaID', deleteAppointment);
+const { checkAuth, checkDoctor, checkAdmin } = require("../middleware/auth");
+
+router.get('/', checkAuth, checkAdmin, getAllPatients)
+router.get('/:id', checkAuth, checkAdmin, getOnePatient)
+router.post('/', checkAuth,  checkAdmin,  createPatient)
+router.put('/:id', checkAuth,  checkAdmin, updatePatient)
+router.delete('/:id', checkAuth, checkAdmin, deletePatient)
+router.get('/:id/prescriptions', checkAuth, checkDoctor, getPatientPrescriptions)
+router.get('/:id/appointments', checkAuth, checkDoctor, getPatientAppointments)
+router.post('/:id/appointments', checkAuth, checkDoctor, createAppointment)
+router.delete('/:pacienteID/appointments/:citaID', checkAuth, checkDoctor, deleteAppointment);
+
+//EN este doc, poner las funciones de autenticacion de patient
 
 module.exports = router;
 
