@@ -11,7 +11,7 @@ router.put('/:id', checkAuth,  checkAdmin, updatePatient)
 router.delete('/:id', checkAuth, checkAdmin, deletePatient)
 router.get('/:id/prescriptions', checkAuth, checkDoctor, getPatientPrescriptions)
 router.get('/:id/appointments', checkAuth, checkDoctor, getPatientAppointments)
-router.post('/:id/appointments', checkAuth, checkDoctor, createAppointment)
+router.post('/:id/appointments', checkAuth, createAppointment)
 router.delete('/:pacienteID/appointments/:citaID', checkAuth, checkDoctor, deleteAppointment);
 
 //EN este doc, poner las funciones de autenticacion de patient

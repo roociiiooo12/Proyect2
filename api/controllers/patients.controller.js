@@ -145,7 +145,7 @@ const createAppointment = async (req, res) => {
         const { medicoID, fecha, hora, motivo } = req.body;
 
         // Verificar si el paciente existe
-        const patient = await Patients.findOne({ where: { id } });
+        const patient = await Patients.findOne({ where: { pacienteID: id  } });
 
         if (!patient) {
             return res.status(404).json({ message: 'Paciente no encontrado.' });
@@ -170,7 +170,7 @@ const createAppointment = async (req, res) => {
             "motivo": motivo,
             estado: 'Programada', // Estado inicial de la cita
         });
-        console.log(req.body)
+        
         // Respuesta de éxito
         return res.status(201).json({
             message: "Cita creada exitosamente",

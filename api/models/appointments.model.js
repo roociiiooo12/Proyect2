@@ -28,7 +28,7 @@ const Appointments = sequelize.define(
             allowNull: false
         },
         motivo: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false
         },
         estado: {
@@ -37,7 +37,6 @@ const Appointments = sequelize.define(
         }
     },
     { 
-        updatedAt: false,
         timestamps:false
      } 
 );

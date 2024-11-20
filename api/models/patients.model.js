@@ -19,7 +19,7 @@ const Patients = sequelize.define(
 
         telefono: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            
         },
         poblacion: {
             type: DataTypes.STRING,

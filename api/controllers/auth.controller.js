@@ -40,7 +40,7 @@ const loginPatient = async (req, res) => {
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
             return res.status(200).json({ token, role: user.role });
         } else {
-            return res.status(404).send("Error: pa tu casa");
+            return res.status(404).send("Error: campos incorrectos");
         }
     } catch (error) {
         return res.status(500).send(error);
