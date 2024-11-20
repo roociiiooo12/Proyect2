@@ -25,6 +25,15 @@ const Doctors = sequelize.define(
             type: DataTypes.ENUM("Admin", "Doctor"),
             defaultValue: "Doctor"
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     },
     { 
         updatedAt: false,

@@ -12,11 +12,22 @@ const checkAuth = async (req, res, next) => {
 
         jwt.verify(req.headers.authorization, process.env.SECRET, async (err, result) => {
             if (err) return res.status(401).send("Token not valid");
-            const user = await Patients.findOne({
+            if(result.role === "Doctor"){
+            const user = await Doctors.findOne({
                 where: { email: result.email },
             });
-            if (!user) return res.status(404).send("User not found");
-            res.locals.user = user;
+            if (!user) return res.status(404).send("Doctor not found");
+                res.locals.user = user;
+
+            } 
+            if (result.role === "Patient") {
+                const user = await Patients.findOne({
+                    where: { email: result.email },
+                });
+                if (!user) return res.status(404).send("Patient not found");
+                res.locals.user = user;
+            } 
+   
             next();
         });
     } catch (error) {
@@ -44,7 +55,7 @@ const checkDoctor = async (req, res, next) => {
             next();
         }
     } catch (error) {
-        res.status(404).send(error);
+        res.status(404).send(error.message);
     }
 };
 

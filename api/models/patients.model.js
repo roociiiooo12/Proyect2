@@ -25,6 +25,15 @@ const Patients = sequelize.define(
             type: DataTypes.STRING,
            
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
     },
     {
         updatedAt: false,

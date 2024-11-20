@@ -6,14 +6,18 @@ const Doctors = require("../models/doctors.model")
 
 const signupPatient = async (req, res) => {
     try {
-        const saltRounds = bcrypt.genSaltSync(process.env.NUMBER); //esto en .env
+        const saltRounds = bcrypt.genSaltSync(parseInt(process.env.NUMBER)); //esto en .env
         const hasedPassword = bcrypt.hashSync(req.body.password, saltRounds);
         req.body.password = hasedPassword;
 
         const user = await Patients.create(req.body);
-        const payload = { email: req.body.email };
-        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
-        res.status(200).json({ token, role: user.role, user: user.email });
+        if (user) {
+            const patient = await Patients.findOne({ where: { email: req.body.email } });
+            const payload = { email: req.body.email, role: patient.role };
+            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
+            res.status(200).json({ token, role: user.role, user: user.email });
+        }
+
     } catch (error) {
         return res.status(500).send(error);
     }
@@ -32,7 +36,7 @@ const loginPatient = async (req, res) => {
         const comparePass = bcrypt.compareSync(req.body.password, user.password);
 
         if (comparePass) {
-            const payload = { email: user.email };
+            const payload = { email: user.email, role: user.role };
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
             return res.status(200).json({ token, role: user.role });
         } else {
@@ -45,16 +49,19 @@ const loginPatient = async (req, res) => {
 
 const signupDoctor = async (req, res) => {
     try {
-        const saltRounds = bcrypt.genSaltSync(process.env.NUMBER); //esto en .env
+        const saltRounds = bcrypt.genSaltSync(parseInt(process.env.NUMBER)); //esto en .env
         const hasedPassword = bcrypt.hashSync(req.body.password, saltRounds);
         req.body.password = hasedPassword;
 
         const user = await Doctors.create(req.body);
-        const payload = { email: req.body.email };
-        const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
-        res.status(200).json({ token, role: user.role, user: user.email });
+        if (user) {
+            const doctor = await Doctors.findOne({ where: { email: req.body.email } });
+            const payload = { email: req.body.email, role: doctor.role };
+            const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
+            res.status(200).json({ token, role: user.role, user: user.email });
+        }
     } catch (error) {
-        return res.status(500).send(error);
+        return res.status(500).send(error.message);
     }
 };
 
@@ -71,7 +78,7 @@ const loginDoctor = async (req, res) => {
         const comparePass = bcrypt.compareSync(req.body.password, user.password);
 
         if (comparePass) {
-            const payload = { email: user.email };
+            const payload = { email: user.email, role: user.role };
             const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "1h" });
             return res.status(200).json({ token, role: user.role });
         } else {
@@ -94,4 +101,4 @@ const logout = async (req, res) => {
 
 
 
-module.exports = { signupPatient, loginPatient, signupDoctor, loginDoctor, logout};
+module.exports = { signupPatient, loginPatient, signupDoctor, loginDoctor, logout };

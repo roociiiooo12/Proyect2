@@ -6,11 +6,11 @@ const { getAllDoctors, getOneDoctor, createDoctor,
 const { checkAuth, checkDoctor, checkAdmin } = require("../middleware/auth");
 
 router.get('/', checkAuth, checkAdmin, getAllDoctors)
+router.get('/:medicoID/appointments', checkAuth, checkDoctor, getDoctorAppointments)
 router.get('/:id', checkAuth, checkAdmin, getOneDoctor)
 router.post('/', checkAuth, checkAdmin, createDoctor)
 router.put('/:id', checkAuth, checkAdmin, updateDoctor)
 router.delete('/:id', checkAuth, checkAdmin, deleteDoctor)
-router.get('/:medicoID/appointments', checkAuth, checkDoctor, getDoctorAppointments)
 router.get('/:medicoID/patients/:pacienteID', checkAuth, checkDoctor, getOnePatient)
 router.post('/:medicoID/patients', checkAuth, checkDoctor, createPatientByDoctor)
 router.post('/:medicoID/patients/:pacienteID/prescriptions', checkAuth, checkDoctor, createPrescriptionByDoctor);
