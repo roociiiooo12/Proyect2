@@ -1,4 +1,4 @@
-const Prescriptions = require("../models/medications.model");
+const Prescriptions = require("../models/prescriptions.model");
 
 const getAllPrescriptions = async (request, response) => {
     try {

@@ -5,7 +5,7 @@ const { getAllDoctors, getOneDoctor, createDoctor,
 
 const { checkAuth, checkDoctor, checkAdmin } = require("../middleware/auth");
 
-router.get('/', checkAuth, checkAdmin, getAllDoctors)
+router.get('/', getAllDoctors)
 router.get('/:medicoID/appointments', checkAuth, checkDoctor, getDoctorAppointments)
 router.get('/:id', checkAuth, checkAdmin, getOneDoctor)
 router.post('/', checkAuth, checkAdmin, createDoctor)

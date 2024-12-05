@@ -5,17 +5,4 @@ INSERT INTO medications (nombre, efectoSecundario, tipo) VALUES
 ('Paracetamol', 'Irritación gástrica', 'Analgésico'),
 ('Metformina', 'Dolor abdominal', 'Antidiabético'),
 ('Enalapril', 'Tos seca', 'Antihipertensivo'),
-('Atorvastatina', 'Dolor muscular', 'Hipolipemiante'),
-('Omeprazol', 'Dolor de cabeza', 'Antiácido'),
-('Aspirina', 'Sangrado', 'Analgésico'),
-('Ciprofloxacino', 'Molestias digestivas', 'Antibiótico'),
-('Furosemida', 'Calambres', 'Diurético'),
-('Levotiroxina', 'Pérdida de peso', 'Hormona tiroidea'),
-('Diazepam', 'Dependencia', 'Ansiolítico'),
-('Diclofenaco', 'Malestar estomacal', 'Antiinflamatorio'),
-('Clorhidrato de Metoclopramida', 'Fatiga', 'Antiemético'),
-('Salbutamol', 'Palpitaciones', 'Broncodilatador'),
-('Insulina', 'Hipoglucemia', 'Antidiabético'),
-('Azitromicina', 'Dolor abdominal', 'Antibiótico'),
-('Carbamazepina', 'Somnolencia', 'Anticonvulsivo'),
-('Losartán', 'Mareos', 'Antihipertensivo');
+('Atorvastatina', 'Dolor muscular', 'Hipolipemiante');

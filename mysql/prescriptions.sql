@@ -5,18 +5,4 @@ INSERT INTO prescriptions (pacienteID, nombre, descripcion, fecha) VALUES
 (4, 'Tratamiento para la tos', 'Jarabe para la tos, 10 ml cada 4 horas hasta mejorar.', '2024-11-18'),
 (5, 'Infección Urinaria', 'Amoxicilina 500 mg cada 8 horas durante 7 días.', '2024-11-19'),
 (6, 'Dolor Muscular', 'Ibuprofeno 400 mg cada 6 horas por 3 días.', '2024-11-20'),
-(7, 'Tratamiento Asma', 'Inhalador cada 4 horas según sea necesario.', '2024-11-21'),
-(8, 'Resfriado Común', 'Vitamina C y Zinc una vez al día por 2 semanas.', '2024-11-22'),
-(9, 'Control Colesterol', 'Atorvastatina 20 mg cada noche antes de dormir.', '2024-11-23'),
-(10, 'Ansiedad', 'Tomar Diazepam según indicaciones del médico.', '2024-11-24'),
-(11, 'Antibiótico', 'Ciprofloxacino cada 12 horas por 7 días.', '2024-11-25'),
-(12, 'Presión Alta', 'Losartán 50 mg cada mañana.', '2024-11-26'),
-(13, 'Diabetes', 'Insulina subcutánea según la dosis indicada.', '2024-11-27'),
-(14, 'Alergia Primaveral', 'Loratadina una vez al día mientras persistan síntomas.', '2024-11-28'),
-(15, 'Tratamiento de Migraña', 'Sumatriptán al inicio del dolor.', '2024-11-29'),
-(16, 'Tratamiento de Hongos', 'Aplicar crema antifúngica dos veces al día.', '2024-11-30'),
-(17, 'Infección Estomacal', 'Metronidazol cada 8 horas por 5 días.', '2024-12-01'),
-(18, 'Suplemento Vitamínico', 'Complejo B una vez al día con las comidas.', '2024-12-02'),
-(19, 'Trastorno del Sueño', 'Melatonina 3 mg antes de dormir.', '2024-12-03'),
-(20, 'Terapia Hormonal', 'Estrógenos según pauta médica, una vez al día.', '2024-12-04');
-
+(7, 'Tratamiento Asma', 'Inhalador cada 4 horas según sea necesario.', '2024-11-21');

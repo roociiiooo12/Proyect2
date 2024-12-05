@@ -8,7 +8,7 @@ const getAllDoctors = async (request, response) => {
         const doctor = await Doctors.findAll();
         return response.status(200).json(doctor);
     } catch (error) {
-        return response.status(501).send(error);
+        return response.status(501).send(error.message);
     }
 };
 
